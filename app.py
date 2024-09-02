@@ -130,7 +130,7 @@ async def on_message(message):
         
     response_embed = discord.Embed(
         title=title,
-        description=f"[Undang](https://discord.com/oauth2/authorize?client_id=1180105597874610206&permissions=277025515584&scope=bot) bot ini ke server Anda!\n[Support](https://discord.com/invite/bVUa2En9) komunitas kami!",
+        description=f"[Undang](https://discord.com/oauth2/authorize?client_id=884708266398068736) bot ini ke server Anda!\n[Support](https://discord.com/invite/AuVQvUHn2t) komunitas kami!",
         color=discord.Color.blue()
     )
     
@@ -164,10 +164,10 @@ async def machine(ctx):
         performance_rate = int((ram.percent + cpu + disk.percent) / 3)
 
         embed = discord.Embed(title="Statistik Mesin", color=discord.Color.blue())
-        embed.add_field(name="RAM Gratis", value=f"{ram.available / (1024 ** 3):.2f} GB / {ram.total / (1024 ** 3):.2f} GB", inline=True)
-        embed.add_field(name="CPU Gratis", value=f"{100 - cpu:.2f}%", inline=True)
-        embed.add_field(name="Ruang Disk Gratis", value=f"{disk.free / (1024 ** 3):.2f} GB / {disk.total / (1024 ** 3):.2f} GB", inline=True)
-        embed.add_field(name="Tingkat Kinerja", value=f"{performance_rate}% dari 100%", inline=False)
+        embed.add_field(name="RAM Tersedia", value=f"{ram.available / (1024 ** 3):.2f} GB / {ram.total / (1024 ** 3):.2f} GB", inline=True)
+        embed.add_field(name="CPU Tersedia", value=f"{100 - cpu:.2f}%", inline=True)
+        embed.add_field(name="Ruang Tersedia", value=f"{disk.free / (1024 ** 3):.2f} GB / {disk.total / (1024 ** 3):.2f} GB", inline=True)
+        embed.add_field(name="Kinerja", value=f"{performance_rate}% dari 100%", inline=False)
 
         await ctx.send(embed=embed)
     except Exception as e:
@@ -188,7 +188,7 @@ async def on_guild_join(guild):
         if user:
             await user.send(message_content)
         else:
-            print("Gak bisa DM.")
+            print("Gagal mendapatkan pengguna untuk DM.")
     else:
         print("Gagal mendapatkan informasi pemilik.")
 
@@ -221,9 +221,9 @@ async def imagine(ctx: discord.Interaction, prompt: str, image_type: app_command
         image_embed = discord.Embed(title="Gambar Dihasilkan", color=discord.Color.blue())
         image_embed.set_image(url=image)
         image_embed.add_field(name="Prompt", value=prompt, inline=False)
-        image_embed.add_field(name="Model", value=model, inline=False)
+        image_embed.add_field(name="Model", value="ezbotai v1", inline=False)
         await ctx.edit_original_response(content=None, embed=image_embed, view=view)
     else:
         await ctx.edit_original_response(content="Gagal mengunggah gambar.", embed=None)
 
-client.run("TOKEN ANDA MASUKIN DISINI")  # PAKE TOKEN BOT KALIAN (AMBIL SENDIRI)
+client.run("TOKEN ANDA DI SINI")  # Gunakan token bot Anda
